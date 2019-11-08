@@ -17,3 +17,6 @@ def news_of_day(request):
         </html>
             '''
     return HttpResponse(html)
+
+def welcome(request):
+    return render(request, 'welcome.html')
