@@ -1,3 +1,4 @@
+
 <style>
     .test-image {
         background-attachment: fixed;
@@ -14,77 +15,52 @@
 </style>
 {% load bootstrap3 %}
 {% load static %}
-
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
-
     <title> Gallery </title>
-
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- <link rel="shortcut icon" href="{%  static 'favicon.ico' %}"> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
+        {% comment %} integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> {% endcomment %}
     {% block styles %}
     {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css" />
-
-
     {% endblock %}
-
 </head>
-
-<body style="color:white; background:black">
+<body style="color:white; background:pink">
     {% include "navbar.html" %}
-
     {% block scripts %}
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     {% bootstrap_javascript %}
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js"></script>
     {% endblock %}
-     <div class="intro">
-         <h1>TUMAA-GALLERY</h1>
-         <h4>Welcome TUMAA-GALLERY</h4>
-         <h6>On 22nd July,2019</h6>
+     <div class="intro" style="margin-top: 50px">
+         {% comment %} <h1>TUMAA-GALLERY</h1> {% endcomment %}
+         <h4>Welcome to tumaa-gallery</h4>
+         {% comment %} <h6>On 22nd July,2019</h6> {% endcomment %}
          <p>WRITE DESCRIPTION</p>
      </div>
-
-
     <div class="container">
         <div class="ro w">
             <div class="col-md-12">
                         <div class="col-md-12-4">
-                            <p id="txt" style="color:aliceblue; text-decoration-line: underline;background: black;"><strong><em>Search for
-                                        photos around Kenya under different
-                                        categories and places</em></strong> </p>
 
                             <form class="search-container" role="search" action="{% url 'search_results' %}">
                                 <input style="background:skyblue" type="search" class="searchTerm"
-                                    placeholder="Fitness,Cars, Food & Fashion" name="searchCategory">
+                                    placeholder="searchCategory">
                                 <button type="submit" class="searchButton"> <i class="fa fa-search" style="color:black;">Search</i></button>
                             </form>
-
                         </div>
-                    
                 </div>
             </div>
         </div>
-
     </div>
-
     {% block content %}
-
     {% endblock %}
-
     </div>
-
-
 </body>
-
-
 </html>
