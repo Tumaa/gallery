@@ -33,13 +33,17 @@
     {% for image in all_images %}
     <div class="my_item">
 
-    <a href="{{image.image_path.url}}" data-fancybox="images" data-caption="<h6>{{image.name}}</h6>  <p> {{image.description}}</p>   <p> photographed in- {{image.image_location}} </p>  
-                <button class='btn btn-outline-success'  onclick=copyLink('{{image.id}}_theurl_id')>Copy Image Link</button>">  
+    <a href="{{image.image_path.url}}" data-fancybox="images" data-caption="
+        </h5>NAME:{{image.name}}</h5>
+        <p> DESCRIPTION:{{image.description}}</p>  
+       <p>LOCATION:{{image.image_location}} </p> 
+       <p>CATEGORY:{{image.image_category}} </p>
+        <button class='btn btn-outline-success'  onclick=copyLink('{{image.id}}_theurl_id')>Copy Image Link</button>">  
                  <!--Image that's displayed on flexbox--> 
 
     <img src="{{image.image_path.url}}" alt="{{image.name}}">   <!--Image that's displayed originally-->
     </a> 
-    <input type="text" id="{{image.id}}_theurl_id" class="d-none form-control input-sm" value="https://zubeyr.gallery.com{{image.image_path.url}}">
+    <input type="text" id="{{image.id}}_the url_id" class="d-none form-control input-sm" value="https://zubeyr.gallery.com{{image.image_path.url}}">
     </div>
     {% endfor %}
     </div>
@@ -53,9 +57,27 @@ function copyLink(specificImageid){
   var copyText = document.getElementById(specificImageid);      /* Get the text field */
   copyText.select();     /* Select the text field */
   document.execCommand("copy");     /* Copy the text inside the text field */
-  alert("The image link '" + copyText.value + "' can now be accessed");     /* Alert the copied text */
+  alert("The image link '" + copyText.value + ");     /* Alert the copied text */
 }
 </script>
 
 
 {% endblock %}
+
+
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Modal title</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <!-- Content ... -->
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-success">Save changes</button>
+      <button class="button">Cancel</button>
+    </footer>
+  </div>
+</div>
